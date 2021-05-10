@@ -1,1 +1,29 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+</head>
+<body>
+<pre id="log"></pre>
+  <script>
+    (function () {
+        var old = console.log;
+        var logger = document.getElementById('log');
+        console.log = function () {
+          for (var i = 0; i < arguments.length; i++) {
+            if (typeof arguments[i] == 'object') {
+                logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+            } else {
+                logger.innerHTML += arguments[i] + '<br />';
+            }
+          }
+        }
+    })();
+    console.log("test3...");
+  </script>
+  this is a test.
+<!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBVEB7_Tmovx3TXsjzrcSVJyVc9uDxf1a4ixEHBQ6lCJWJbpGMwzqevpOW535pSjlWsFfA-zqxPdIE958sibgRU' });</script><!-- end webpushr code -->
+</body>
+</html>
+
